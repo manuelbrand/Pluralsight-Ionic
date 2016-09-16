@@ -1,12 +1,12 @@
 (function () {
-    'use strict';
+  'use strict';
 
-    angular.module('eliteApp').controller('TeamDetailCtrl', ['$stateParams', TeamDetailCtrl]);
+  angular.module('eliteApp').controller('TeamDetailCtrl', ['$stateParams', TeamDetailCtrl]);
 
-    function TeamDetailCtrl($stateParams) {
-        var vm = this;
-        
-        console.log("$stateParams", $stateParams);
+  function TeamDetailCtrl($stateParams) {
+      var vm = this;
 
-    };
+      console.log("$stateParams", $stateParams);
+
+  };
 })();
