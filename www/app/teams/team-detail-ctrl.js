@@ -13,7 +13,7 @@
       var flattenDivision = _.map(data.teams, function(team) {
           return team.divisionTeams;
       });
-      var team = _.find(_.flatten(flattenDivision), {id: vm.teamId})
+      var team = _.find(_.flatten(flattenDivision), {id: vm.teamId});
 
       vm.teamName = team.name;
 
@@ -44,8 +44,6 @@
           return team.divisionStandings;
       });
       vm.teamStanding = _.find(_.flatten(_.flatten(flattenStanding), {id: vm.teamId}))
-
-      console.log("ok");
 
       vm.following = false;
 
