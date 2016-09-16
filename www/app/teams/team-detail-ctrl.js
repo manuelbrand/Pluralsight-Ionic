@@ -10,10 +10,10 @@
 
       var data = eliteApi.getLeagueData();
 
-      var flattenTeams = _.map(data.teams, function(team) {
+      var flattenDivision = _.map(data.teams, function(team) {
           return team.divisionTeams;
       });
-      var team = _.find(_.flatten(flattenTeams), {id: vm.teamId})
+      var team = _.find(_.flatten(flattenDivision), {id: vm.teamId})
 
       vm.teamName = team.name;
 
@@ -35,10 +35,17 @@
           })
           .value();
 
-      vm.teamStanding = _.chain(data.standings)
-          .flatten("divisionStandings")
-          .find({ "teamId": vm.teamId })
-          .value();
+      // vm.teamStanding = _.chain(data.standings).value();
+          // .flatten("divisionStandings")
+          // .find({ "teamId": vm.teamId })
+          // .value();
+
+      var flattenStanding = _.map(data.standings, function(team) {
+          return team.divisionStandings;
+      });
+      vm.teamStanding = _.find(_.flatten(_.flatten(flattenStanding), {id: vm.teamId}))
+
+      console.log("ok");
 
       vm.following = false;
 
