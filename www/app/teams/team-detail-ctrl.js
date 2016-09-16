@@ -1,9 +1,9 @@
 (function () {
   'use strict';
 
-  angular.module('eliteApp').controller('TeamDetailCtrl', ['$stateParams', 'eliteApi', TeamDetailCtrl]);
+  angular.module('eliteApp').controller('TeamDetailCtrl', ['$stateParams', '$ionicPopup', 'eliteApi', TeamDetailCtrl]);
 
-  function TeamDetailCtrl($stateParams, eliteApi) {
+  function TeamDetailCtrl($stateParams, $ionicPopup, eliteApi) {
       var vm = this;
 
       vm.teamId = Number($stateParams.id);
@@ -47,7 +47,7 @@
 
       vm.following = false;
 
-      vm.toggleFollow = function(){
+      vm.toggleFollow = function() {
 
           if (vm.following) {
               var confirmPopup = $ionicPopup.confirm({

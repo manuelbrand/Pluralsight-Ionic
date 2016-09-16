@@ -46,21 +46,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="team-detail.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="team-detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/app/teams/team-detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-              <folding />
+            <state relative-caret-position="120">
+              <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+              <folding>
+                <marker date="1474032522000" expanded="true" signature="356:449" ph="{&quot;ion-checkmark-round&quot;: vm.following...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="team-detail-ctrl.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="team-detail-ctrl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/app/teams/team-detail-ctrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="69" selection-start-line="15" selection-start-column="69" selection-end-line="15" selection-end-column="69" />
+            <state relative-caret-position="735">
+              <caret line="49" column="36" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -106,8 +108,8 @@
         <option value="$PROJECT_DIR$/www/app/game/game-ctrl.js" />
         <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/www/app/game/game.html" />
-        <option value="$PROJECT_DIR$/www/app/teams/team-detail-ctrl.js" />
         <option value="$PROJECT_DIR$/www/app/teams/team-detail.html" />
+        <option value="$PROJECT_DIR$/www/app/teams/team-detail-ctrl.js" />
       </list>
     </option>
   </component>
@@ -362,12 +364,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1474013048127</updated>
-      <workItem from="1474013049385" duration="13673000" />
+      <workItem from="1474013049385" duration="14667000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13673000" />
+    <option name="totallyTimeSpent" value="14667000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1597" y="0" width="963" height="1440" extended-state="0" />
@@ -570,14 +572,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/game/game.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/app/standings/standings-ctrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -594,18 +588,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/teams/team-detail-ctrl.js">
+    <entry file="file://$PROJECT_DIR$/www/app/game/game.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="69" selection-start-line="15" selection-start-column="69" selection-end-line="15" selection-end-column="69" />
+        <state relative-caret-position="435">
+          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/app/teams/team-detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        <state relative-caret-position="120">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+          <folding>
+            <marker date="1474032522000" expanded="true" signature="356:449" ph="{&quot;ion-checkmark-round&quot;: vm.following...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/teams/team-detail-ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="49" column="36" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
           <folding />
         </state>
       </provider>
