@@ -10,6 +10,5 @@
             vm.teams = callback.teams;
         });
 
-
     }
 })();

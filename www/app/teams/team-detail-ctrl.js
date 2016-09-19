@@ -8,15 +8,23 @@
 
       vm.teamId = Number($stateParams.id);
 
-      var data;
 
       eliteApi.getLeagueData().then(function(callback) {
-          data = callback;
+          var data = callback;
+            console.log(data);
 
-          var flattenDivision = _.map(data.teams, function(team) {
-              return team.divisionTeams;
-          });
-          var team = _.find(_.flatten(flattenDivision), {id: vm.teamId});
+          var team = _.chain(data.teams)
+
+              .map("divisionTeams").flatten()
+
+              .find({ "id": vm.teamId })
+
+              .value();
+
+          // var flattenDivision = _.map(data.teams, function(team) {
+          //     return team.divisionTeams;
+          // });
+          // var team = _.find(_.flatten(flattenDivision), {id: vm.teamId});
 
           vm.teamName = team.name;
 
@@ -43,10 +51,18 @@
               // .find({ "teamId": vm.teamId })
               // .value();
 
-          var flattenStanding = _.map(data.standings, function(team) {
-              return team.divisionStandings;
-          });
-          vm.teamStanding = _.find(_.flatten(_.flatten(flattenStanding), {id: vm.teamId}))
+          vm.teamStanding = _.chain(data.standings)
+
+              .map("divisionStandings").flatten()
+
+              .find({ "teamId": vm.teamId })
+
+              .value();
+
+          // var flattenStanding = _.map(data.standings, function(team) {
+          //     return team.divisionStandings;
+          // });
+          // vm.teamStanding = _.find(_.flatten(_.flatten(flattenStanding), {id: vm.teamId}))
       });
 
       vm.following = false;

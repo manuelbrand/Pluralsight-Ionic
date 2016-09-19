@@ -11,6 +11,5 @@
             vm.game = _.find(callback.games, {"id": gameId});
         });
 
-
     }
 })();
