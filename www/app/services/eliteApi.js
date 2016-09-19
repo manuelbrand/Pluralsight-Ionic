@@ -1,32 +1,39 @@
 (function () {
   'use strict';
 
-  angular.module('eliteApp').factory('eliteApi', ['$http', eliteApi]);
+  angular.module('eliteApp').factory('eliteApi', ['$http', '$q', eliteApi]);
 
-  function eliteApi($http) {
+  function eliteApi($http, $q) {
 
-    var leagues;
     var currentLeagueId;
 
-    function getLeagues(callback){
+    function getLeagues(){
+      var deferred = $q.defer();
+
       $http.get('http://elite-schedule.net/api/leaguedata')
-          .then(function onSuccess(data) {
-                callback(data.data);
-              }, function onError(data) {
-                console.log("error: " + data);
+          .then(function onSuccess(response) {
+                deferred.resolve(response.data)
+              }, function onError() {
+                console.log("getLeagues - FAIL");
+            deferred.reject()
               }
           )
+      return deferred.promise;
     }
 
-    function getLeagueData(callback){
+    function getLeagueData(){
+      var deferred = $q.defer();
+
       $http.get("http://elite-schedule.net/api/leaguedata/" + currentLeagueId)
-          .then(function onSucces(data) {
-            console.log(data);
-            callback(data.data)
-          }, function onFail() {
+          .then(function onSucces(response) {
+            console.log(response);
+            deferred.resolve(response.data)
+          }, function onError() {
             console.log("getLeagueData - FAIL");
+            deferred.reject()
               }
           )
+      return deferred.promise;
     }
 
     function setLeagueId(leagueId) {
@@ -38,5 +45,6 @@
       getLeagueData: getLeagueData,
       setLeagueId: setLeagueId
     };
+
   };
 })();

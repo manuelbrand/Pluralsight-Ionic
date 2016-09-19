@@ -6,7 +6,7 @@
     function TeamsCtrl(eliteApi) {
         var vm = this;
 
-        eliteApi.getLeagueData(function(callback) {
+        eliteApi.getLeagueData().then(function(callback) {
             vm.teams = callback.teams;
         });
 

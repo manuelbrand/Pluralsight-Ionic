@@ -1,5 +1,5 @@
 (function() {
-    'usestrict';
+    'use strict';
 
     angular.module('eliteApp').controller('GameCtrl', ['$stateParams', 'eliteApi', GameCtrl]);
 
@@ -7,8 +7,10 @@
         var vm = this;
 
         var gameId = Number($stateParams.id);
-        var data = eliteApi.getLeagueData();
+        eliteApi.getLeagueData().then(function(callback) {
+            vm.game = _.find(callback.games, {"id": gameId});
+        });
 
-        vm.game = _.find(data.games, {"id": gameId});
+
     }
 })();
