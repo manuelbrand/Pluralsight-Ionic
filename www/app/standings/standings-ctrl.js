@@ -6,9 +6,9 @@
     function StandingsCtrl(eliteApi) {
         var vm = this;
 
-        var data = eliteApi.getLeagueData();
-        vm.standings = data.standings;
-
+        eliteApi.getLeagueData(function(callback) {
+            vm.standings = callback.standings;
+        });
 
     }
 })();
