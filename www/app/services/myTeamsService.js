@@ -24,7 +24,6 @@
                 var team = self.myTeamsCache.get(key[i]);
                 team.push(team);
             }
-
             return teams;
         }
 
