@@ -12,6 +12,7 @@
 
 
     vm.selectLeague = function(leagueId) {
+      console.log("LeagueId: " + leagueId);
       eliteApi.setLeagueId(leagueId);
       $state.go("app.teams");
     };

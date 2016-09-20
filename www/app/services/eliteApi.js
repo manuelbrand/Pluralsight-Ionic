@@ -5,7 +5,7 @@
 
   function eliteApi($http, $q, $ionicLoading) {
 
-    var currentLeagueId = 1;
+    var currentLeagueId;
 
     function getLeagues(){
       var deferred = $q.defer();
@@ -18,7 +18,7 @@
                 console.log("getLeagues - FAIL");
             deferred.reject()
               }
-          )
+          );
       return deferred.promise;
     }
 
@@ -29,7 +29,7 @@
       $ionicLoading.show({ template: 'Loading...'})
 
       $http.get("http://elite-schedule.net/api/leaguedata/" + currentLeagueId)
-          .then(function onSucces(response) {
+          .then(function onSuccess(response) {
             console.log("getLeagueData - SUCCESS");
             $ionicLoading.hide();
             deferred.resolve(response.data)
@@ -38,7 +38,7 @@
             $ionicLoading.hide();
             deferred.reject()
               }
-          )
+          );
       return deferred.promise;
     }
 

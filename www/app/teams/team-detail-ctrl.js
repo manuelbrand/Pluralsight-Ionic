@@ -13,14 +13,13 @@
           var data = callback;
             console.log(data);
 
+          // New snippet
           var team = _.chain(data.teams)
-
               .map("divisionTeams").flatten()
-
               .find({ "id": vm.teamId })
-
               .value();
 
+          // Own snippet
           // var flattenDivision = _.map(data.teams, function(team) {
           //     return team.divisionTeams;
           // });
@@ -46,19 +45,19 @@
               })
               .value();
 
+          // Original snippet
           // vm.teamStanding = _.chain(data.standings).value();
               // .flatten("divisionStandings")
               // .find({ "teamId": vm.teamId })
               // .value();
 
+          // New snippet
           vm.teamStanding = _.chain(data.standings)
-
               .map("divisionStandings").flatten()
-
               .find({ "teamId": vm.teamId })
-
               .value();
 
+          // Own snippet
           // var flattenStanding = _.map(data.standings, function(team) {
           //     return team.divisionStandings;
           // });
@@ -100,8 +99,5 @@
               return "";
           }
       }
-
-
-
   };
 })();
