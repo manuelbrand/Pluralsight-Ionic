@@ -7,6 +7,7 @@
         var vm = this;
 
         eliteApi.getLeagueData().then(function(callback) {
+            console.log(callback.teams);
             vm.teams = callback.teams;
         });
     }
