@@ -1,10 +1,12 @@
 (function () {
     'use strict';
 
-    angular.module('eliteApp').controller('TeamDetailCtrl', ['$stateParams', '$ionicPopup', 'eliteApi', TeamDetailCtrl]);
+    angular.module('eliteApp').controller('TeamDetailCtrl', ['$stateParams', '$ionicPopup', 'eliteApi', 'myTeamsService', TeamDetailCtrl]);
 
-    function TeamDetailCtrl($stateParams, $ionicPopup, eliteApi) {
-        var vm = this;
+    function TeamDetailCtrl($stateParams, $ionicPopup, eliteApi, myTeamsService) {
+        var vm = this,
+            team = null,
+            leagueData = null;
 
         vm.teamId = Number($stateParams.id);
 
@@ -14,10 +16,13 @@
             console.log(data);
 
             // New snippet
-            var team = _.chain(data.teams)
+            team = _.chain(data.teams)
                 .map("divisionTeams").flatten()
                 .find({"id": vm.teamId})
                 .value();
+            console.log("Team", team);
+
+            setTeam(team);
 
             // Own snippet
             // var flattenDivision = _.map(data.teams, function(team) {
@@ -65,9 +70,9 @@
         });
 
         vm.following = false;
+        console.log("Team2", team);
 
         vm.toggleFollow = function () {
-
             if (vm.following) {
                 var confirmPopup = $ionicPopup.confirm({
                     title: 'Unfollow?',
@@ -76,16 +81,23 @@
                 confirmPopup.then(function (res) {
                     if (res) {
                         vm.following = !vm.following;
+                        myTeamsService.unfollowTeam(team.id);
                     }
                 });
             } else {
                 vm.following = !vm.following;
+                console.log("team3",team);
+                myTeamsService.followTeam({ id: team.id, name: team.name, leagueId: leagueData.id, leagueName: leagueData.name });
             }
         };
 
 
         function isTeamInGame(item) {
             return item.team1Id === vm.teamId || item.team2Id === vm.teamId;
+        }
+
+        function setTeam(teamObj) {
+            team = teamObj;
         }
 
         function getScoreDisplay(isTeam1, team1Score, team2Score) {

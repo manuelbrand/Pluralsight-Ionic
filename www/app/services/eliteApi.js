@@ -5,6 +5,9 @@
 
     function eliteApi($http, $q, $ionicLoading, CacheFactory) {
 
+        // API Address
+        var apiBaseAddress = "http://elite-schedule.net/api/leaguedata/";
+
         // Handle Caching
         self.leaguesCache = CacheFactory.get("leaguesCache");
         self.leaguesDataCache = CacheFactory.get("leagueDataCache");
@@ -53,7 +56,7 @@
                 console.log("(getLeagues)Got data from cache", leaguesData);
                 deferred.resolve(leaguesData);
             } else {
-                $http.get('http://elite-schedule.net/api/leaguedata')
+                $http.get(apiBaseAddress)
                     .then(function onSuccess(response) {
                             console.log("(getLeagues)Got data from HTTP");
                             self.leaguesCache.put(cacheKey, response.data);
@@ -78,7 +81,7 @@
             } else {
                 $ionicLoading.show({template: 'Loading...'});
 
-                $http.get("http://elite-schedule.net/api/leaguedata/" + getLeagueId())
+                $http.get(apiBaseAddress + getLeagueId())
                     .then(function onSuccess(response) {
                             console.log("(getLeagueData)Got data from HTTP");
                             self.leaguesDataCache.put(cacheKey, response.data)

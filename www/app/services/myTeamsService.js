@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    angular.module('eliteApp').factory('myTeamService', ['CacheFactory', myTeamService]);
+    angular.module('eliteApp').factory('myTeamsService', ['CacheFactory', myTeamsService]);
 
-    function myTeamService(CacheFactory) {
+    function myTeamsService(CacheFactory) {
         var self = this;
 
         self.myTeamsCache = CacheFactory.get("myTeamsCache");
@@ -39,4 +39,4 @@
         }
     }
 
-});
+})();
